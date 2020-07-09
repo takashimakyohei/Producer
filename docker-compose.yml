@@ -1,0 +1,21 @@
+version: '3' 
+services: #アプリケーションを動かすための各要素。今回は、db と web　の２つ
+  db:
+    image: mysql:5.7 #mysql5.7を使用
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
+    ports: # ホスト側：コンテナ側。　コンテナ側の3306ポートを、ホスト側の3306ポートに同期させる。これにより、コンテナの中からホストの3306ポートにアクセスできる。
+      - "3306:3306"
+    volumes: #データを永続化するための仕組み。 ホスト側の./db/mysql/volumes を コンテナ内の/var/lib/mysqlと同期させる
+      - ./db/mysql/volumes:/var/lib/mysql
+
+  web:
+    build: . #Dockerfileがあるパス、つまりカレントディレクトリ
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

@@ -11,7 +11,7 @@ services: #アプリケーションを動かすための各要素。今回は、
       - ./db/mysql/volumes:/var/lib/mysql
 
   web:
-    build: . #Dockerfileがあるパス、つまりカレントディレクトリ
+    build: . #カレントディレクトリ
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp

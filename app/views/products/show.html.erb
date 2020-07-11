@@ -1,2 +1,28 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<!-- 部分テンプレート化予定-->
+<% if user_signed_in? %>
+  ~<%= current_user.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+
+<% elsif producer_signed_in? %>
+  ~<%= current_producer.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_producer_session_path ,:method => :delete %>
+
+<% else %>
+  <h3>ユーザー</h3>
+  <%= link_to "ログイン", new_user_session_path %>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <h3>ショップ</h3>
+  <%= link_to "ログイン", new_producer_session_path %>
+  <%= link_to "新規登録", new_producer_registration_path %>
+<% end %>
+<!--ここまで部分テンプレート化予定-->
+
+<h2>商品詳細</h2>
+<p>商品名：<%= @product.name %></p>
+<p>内容：<%= @product.content %></p>
+<p>値段：<%= @product.price %></p>
+<p>内容：<%= @product.description %></p>
+<p>商品の画像表示予定</p>
+<p>生産県表示予定</p>
+<p>出品者の名前表示予定</p>
+<p>出品者の画像表示予定</p>

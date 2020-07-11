@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = Product.new (product_params)
     @product.producer_id = current_producer.id
     if @product.save
       redirect_to product_path(@product), notice: "投稿に成功しました"
@@ -46,6 +46,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :content)
+    params.require(:product).permit(:name, :description, :price, :content, :image)
   end
 end

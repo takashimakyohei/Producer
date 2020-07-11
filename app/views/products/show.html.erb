@@ -22,7 +22,9 @@
 <p>内容：<%= @product.content %></p>
 <p>値段：<%= @product.price %></p>
 <p>内容：<%= @product.description %></p>
-<p>商品の画像表示予定</p>
+<% if @product.image.attached? %>
+  <p><%= image_tag @product.image %></p>
+<% end %>
 <p>生産県表示予定</p>
 <p>出品者の名前表示予定</p>
 <p>出品者の画像表示予定</p>

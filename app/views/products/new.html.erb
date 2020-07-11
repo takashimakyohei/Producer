@@ -1,7 +1,7 @@
 <h2>商品の出品</h2>
 <%= form_for @product do |f| %>
   <label>商品名</label>
- <p><%= f.text_field :name %></p>
+  <p><%= f.text_field :name %></p>
 
   <label>出品時のタイトル</label>
   <p><%= f.text_field :content %></p>
@@ -9,7 +9,8 @@
   <label>商品の値段</label>
   <p><%= f.number_field :price %></p>
 
-  <p>画像表示予定</p>
+  <label>画像</label>
+  <p><%= f.file_field :image %></p>
   
   <label>商品内容</label>
   <p><%= f.text_area :description %></p>

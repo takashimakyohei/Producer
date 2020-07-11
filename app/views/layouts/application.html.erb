@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <p><%= link_to "Top", root_path %></p>
+    <p><%= link_to "商品一覧", products_path %></p>
+    <p><%= link_to "出品者一覧", producers_path %></p>
+    <p><%= link_to "Contact", "#" %></p>
+  <% if producer_signed_in? %>
+    <p><%= link_to "作物を出費する", new_product_path %></p>
+  <% end %>
     <%= yield %>
   </body>
 </html>

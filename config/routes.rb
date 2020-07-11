@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'producers/index'
+  get 'producers/show'
+  get 'producers/edit'
   root to: 'home#index'
   resources :products
   resources :producers, only: [:index, :show, :edit, :update]

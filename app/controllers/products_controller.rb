@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update(product_params)
+    if @product.update (product_params)
       redirect_to product_path(@product), notice: "編集に成功しました"
     else
       render :edit

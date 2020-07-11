@@ -17,7 +17,6 @@
     <p><%= link_to "Contact", "#" %></p>
   <% if producer_signed_in? %>
     <p><%= link_to "作物を出費する", new_product_path %></p>
-    <p><%= link_to "プロフィール編集", edit_producer_path %></p>
   <% end %>
     <%= yield %>
   </body>

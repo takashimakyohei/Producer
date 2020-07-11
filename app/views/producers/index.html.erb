@@ -1,2 +1,7 @@
-<h1>Producers#index</h1>
-<p>Find me in app/views/producers/index.html.erb</p>
+<% @producers.each do |producer| %>
+  <div class="content">
+    <%= link_to "ユーザー詳細", producer_path(producer) %>
+    <p>生産者画像：<%= image_tag producer.image %></p>
+    <p>生産者：<%= producer.name %></p>
+  </div>
+<% end %>

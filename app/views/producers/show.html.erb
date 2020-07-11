@@ -1,2 +1,10 @@
-<h1>Producers#show</h1>
-<p>Find me in app/views/producers/show.html.erb</p>
+<h2>出品者</h2>
+<hr>
+<p>出品県者の県表示予定</p>
+<p>出品者：<%=@producer.name  %></p>
+<p>プロフィール:<%= @producer.profile %></p>
+<p>出品者画像：<%= image_tag @producer.image %></p>
+
+<% if current_producer == @producer %>
+  <%= link_to "編集", edit_producer_path  %>
+<% end %>

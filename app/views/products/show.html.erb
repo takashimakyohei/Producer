@@ -46,6 +46,11 @@
   <% end %>
 <% end %>
 
-<% @comments.each do |comment| %>
-  <p><%= comment.content %></p>
-<% end %>
+  <% @comments.each do |comment| %>
+    <p><%= comment.user.name %>:<%= comment.content %></p>
+    <% if user_signed_in? %>
+      <% if comment.user_id == current_user.id %>
+        <%= link_to "削除", comment_path(comment.id), method: :delete %>
+      <% end %>
+    <% end %>
+  <% end %>

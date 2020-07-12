@@ -1,0 +1,10 @@
+<h2>ユーザー</h2>
+<hr>
+<p>出品県者の県表示予定</p>
+<p>ユーザー：<%=@user.name  %></p>
+<p>メールアドレス： <%= @user.email %> </p>
+<p>ユーザー画像：<%= image_tag @user.image %></p>
+
+<% if current_user == @user %>
+  <%= link_to "編集", edit_user_registration_path  %>
+<% end %>

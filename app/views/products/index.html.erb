@@ -8,7 +8,7 @@
 <% if product.image.attached? %>
   <p><%= image_tag product.image %></p>
 <% end %>
-<p><% product.producer.name %></p>
+<p><%= product.producer.name %></p>
 
 <% if product.producer.image.attached? %>
   <p><%#= image_tag product.producer.image %></p>

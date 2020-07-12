@@ -8,7 +8,7 @@
     <%= f.text_field :name %>
   </div>
 
-  <p>都道府県選択導入予定</p>
+  <p><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %></p>
 
   <div class="field">
     <%= f.label :email %><br />

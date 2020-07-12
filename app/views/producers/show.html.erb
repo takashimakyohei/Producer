@@ -1,9 +1,11 @@
 <h2>出品者</h2>
 <hr>
-<p>出品県者の県表示予定</p>
+<p><%= @producer.prefecture.name%></p>
 <p>出品者：<%=@producer.name  %></p>
 <p>プロフィール:<%= @producer.profile %></p>
-<p>出品者画像：<%= image_tag @producer.image %></p>
+<% if @producer.image.attached? %>
+  <p>出品者画像：<%= image_tag @producer.image %></p>
+<% end %>
 
 <% if current_producer == @producer %>
   <%= link_to "編集", edit_producer_path  %>

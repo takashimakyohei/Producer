@@ -1,12 +1,16 @@
 <!-- 部分テンプレート化予定-->
 <% if user_signed_in? %>
   ~<%= current_user.name %>がログインしてます~
-  <p><%= image_tag current_user.image %></p>
+  <% if current_user.image.attached? %>
+    <p><%= image_tag current_user.image %></p>
+  <% end %>
   <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
 
 <% elsif producer_signed_in? %>
   ~<%= current_producer.name %>がログインしてます~
+<% if current_producer.image.attached? %>
   <p><%= image_tag current_producer.image %></p>
+<% end %>
   <%= link_to "ログアウト", destroy_producer_session_path ,:method => :delete %>
 
 <% else %>

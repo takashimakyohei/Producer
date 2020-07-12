@@ -36,6 +36,8 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <p><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %></p>
+
     <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image, autofocus: true, autocomplete: "image" %>

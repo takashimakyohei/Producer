@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     if resource_class == User
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :image])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :prefecture_id])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :image, :prefecture_id])
     elsif resource_class == Producer
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profile])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profile,:prefecture_id])
     else
       super
     end

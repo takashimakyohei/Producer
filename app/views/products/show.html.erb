@@ -18,6 +18,9 @@
 <!--ここまで部分テンプレート化予定-->
 
 <h2>商品詳細</h2>
+<% if producer_signed_in? %>
+<%= link_to "編集", edit_product_path(@product) %>
+<% end %>
 <p>商品名：<%= @product.name %></p>
 <p>内容：<%= @product.content %></p>
 <p>値段：<%= @product.price %></p>
@@ -25,6 +28,8 @@
 <% if @product.image.attached? %>
   <p><%= image_tag @product.image %></p>
 <% end %>
-<p>生産県表示予定</p>
-<p>出品者の名前表示予定</p>
-<p>出品者の画像表示予定</p>
+<p><%= @product.producer.prefecture.name %></p>
+<p><%= @product.producer.name %></p>
+<% if @product.producer.image.attached? %>
+<p><%= image_tag @product.producer.image %></p>
+<% end %>

@@ -3,14 +3,21 @@
 
 <% @products.each do |product| %>
 <div class="content">
-    <%= link_to "詳細", product_path(product) %>
-<p>商品の画像表示予定</p>
-<p>出品者の名前表示予定</p>
-<p>出品者の画像表示予定</p>
+<%= link_to "詳細", product_path(product) %>
+
+<% if product.image.attached? %>
+  <p><%= image_tag product.image %></p>
+<% end %>
+<p><%= product.producer.name %></p>
+
+<% if product.producer.image.attached? %>
+  <p><%= image_tag product.producer.image %></p>
+<% end %>
+
 <p>内容：<%= product.content %></p>
 <p>値段：<%= product.price %></p>
 <p>内容：<%= product.description %></p>
-<p>生産県表示予定</p>
+<p><%= product.producer.prefecture.name %></p>
 <p>出品者のプロフィール表示(30文字程度まで表示予定)</p>
 
 </div>

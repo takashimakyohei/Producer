@@ -18,7 +18,7 @@
 <!--ここまで部分テンプレート化予定-->
 
 <h2>商品詳細</h2>
-<% if producer_signed_in? %>
+<% if producer_signed_in? && @product.producer == current_producer %>
 <%= link_to "編集", edit_product_path(@product) %>
 <% end %>
 <p>商品名：<%= @product.name %></p>

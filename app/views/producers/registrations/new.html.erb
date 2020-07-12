@@ -26,8 +26,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-<%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
-
+  <div class="field">
+    <%= f.label "出身県" %><br />
+    <p><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %></p>
+  </div>
+  
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

@@ -1,7 +1,9 @@
 <% @producers.each do |producer| %>
   <div class="content">
     <%= link_to "ユーザー詳細", producer_path(producer) %>
+  <% if producer.image.attached? %>
     <p>生産者画像：<%= image_tag producer.image %></p>
+  <% end %>
     <p>生産者：<%= producer.name %></p>
   </div>
 <% end %>

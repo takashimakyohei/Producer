@@ -3,12 +3,15 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
-    <div class="field">
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
 
-  <p><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %></p>
+  <div class="field">
+    <%= f.label "出身県" %><br />
+    <p><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %></p>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />

@@ -19,6 +19,7 @@
 <p>内容：<%= product.description %></p>
 <p><%= product.producer.prefecture.name %></p>
 <p>出品者のプロフィール表示(30文字程度まで表示予定)</p>
+<p>コメント：<%= product.comments.count %></p>
 
 <% if user_signed_in? %>
   <% if Favorite.find_by(user_id: current_user.id, product_id: product.id) %>
@@ -27,7 +28,7 @@
     <%= link_to "いいね", product_favorites_path(product), method: :post %>
   <% end %>
 <% end %>
-  <%= product.favorites.count %>
+  いいね数：<%= product.favorites.count %>
 
 </div>
 <% end %>

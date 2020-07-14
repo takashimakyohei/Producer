@@ -7,4 +7,5 @@ class User < ApplicationRecord
   belongs_to :prefecture, optional: true
   has_many :favorites, dependent: :destroy 
   has_many :comments, dependent: :destroy 
+  has_many :rooms
 end

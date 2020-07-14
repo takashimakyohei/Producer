@@ -7,7 +7,19 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comments = @product.comments
     @comment = Comment.new
+
+    # チャットページへの遷移処理追加
+    if user_signed_in? #ユーザーがサインインしていたら
+        @producer = @product.producer # 商品を投稿している producer を取得
+        rooms = current_user.rooms #現在ログインしているユーザーが所持している全ての rooms を取得
+        @producer_ids = [] #配列を用意
+        rooms.each do |r| #「現在ログインしているユーザーが所持している全てのrooms」を1つずつ取り出す
+          @producer_ids << r.producer_id #ログインしているユーザーの相手、つまり producer の producer_id を @producer_ids に格納
+        end  
+        #これにより、 Producerの producer_id があるかどうかview側で判断して、「チャットしたことある相手なのかどうか」を判断している
+    end
   end
+
 
   def new
     @product = Product.new

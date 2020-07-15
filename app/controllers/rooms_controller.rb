@@ -1,11 +1,15 @@
 class RoomsController < ApplicationController
+  def index
+
+  end
+  
   def show
     @room = Room.find(params[:id]) #ルーム情報の取得（ user_id, producer_id が入っているかどうかを調べる）
     @message = Message.new #新規メッセージ作成
-    @mesasges = Message.all
+    @messages = @room.messages
 
     if user_signed_in? #もし、ユーザーがサインインしていて
-      if @room.user_id == current_user.id #かつ、 roomに入っている user_id が、 現在ログインしているユーザーのidだったら
+      if @room.user_id == current_user.id #かつ、roomに入っている user_id が、 現在ログインしているユーザーのidだったら
         @producer = @room.producer # @producerに、現在 room に入っている producer の情報を全て格納する
       else
         redirect_to "/"

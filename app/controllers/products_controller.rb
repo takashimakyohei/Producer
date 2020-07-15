@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 
     # チャットページへの遷移処理追加
     if user_signed_in? #ユーザーがサインインしていたら
-        @producer = @product.producer # 商品を投稿している producer を取得
+        @producer = Producer.find_by(id: @product.producer_id) # 商品を投稿している producer を取得
         rooms = current_user.rooms #現在ログインしているユーザーが所持している全ての rooms を取得
         @producer_ids = [] #配列を用意
         rooms.each do |r| #「現在ログインしているユーザーが所持している全てのrooms」を1つずつ取り出す

@@ -19,7 +19,7 @@
 
 <h2>商品詳細</h2>
 <% if producer_signed_in? && @product.producer == current_producer %>
-<%= link_to "編集", edit_product_path(@product) %>
+  <%= link_to "編集", edit_product_path(@product) %>
 <% end %>
 <p>商品名：<%= @product.name %></p>
 <p>内容：<%= @product.content %></p>
@@ -56,15 +56,16 @@
   <% end %>
 コメント：<%= @comments.count %>件
 
-値取ってこれるかテスト：<%= @producer.name %>
+<% if user_signed_in? %>
 
-<% if @producer_ids.include?(@producer.id)  %> <%#ユーザーとしてログインした時に、相手のidが存在するかどうかをチェックしている  %>
-  <br>
-  <%= link_to "チャットへ", room_path(current_user.rooms.find_by(producer_id: @producer.id)) %>
-<% else %>
-  <%= form_for Room.new do |f| %>
-    <%= f.hidden_field :producer_id, :value => @producer.id %>
-    <%= f.submit %>
+  <% if @producer_ids.include?(@producer.id)  %> <%#ユーザーとしてログインした時に、相手のidが存在するかどうかをチェックしている  %>
+    <br>
+    <%= link_to "チャットへ", room_path(current_user.rooms.find_by(producer_id: @producer.id)) %>
+  <% else %>
+    <%= form_for Room.new do |f| %>
+      <%= f.hidden_field :producer_id, :value => @producer.id %>
+      <%= f.submit %>
+    <% end %>
   <% end %>
 <% end %>
 

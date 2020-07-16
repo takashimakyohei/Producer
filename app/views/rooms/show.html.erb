@@ -1,6 +1,7 @@
 <h1>チャットルーム</h1>
+
 <% if user_signed_in? %>
-  <h3><% @producer.name %>とのチャットルーム</h3>
+  <h3><%= @producer.name %>とのチャットルーム</h3>
   <div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->
@@ -18,8 +19,9 @@
       <% end %>
     <% end %>
   </div>
+
 <% elsif producer_signed_in?%>
-  <h3><% @user.name %>とのチャットルーム</h3>
+  <h3><%= @user.name %>とのチャットルーム</h3>
   <div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->

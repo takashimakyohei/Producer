@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
+    begin
     @products = Product.all
+    rescue Exception
+      p "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    end
   end
 
   def show

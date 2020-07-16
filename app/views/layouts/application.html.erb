@@ -17,6 +17,7 @@
   <% if producer_signed_in? %>
     <p><%= link_to "作物を出費する", new_product_path %></p>
     <p><%= link_to "マイページ", "/producers/#{current_producer.id}" %></p>
+    <p><%= link_to "DMリスト", rooms_path %></p>
   <% end %>
 
   <% if user_signed_in? %>

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -17,4 +18,5 @@ class ApplicationController < ActionController::Base
   def user_signed?
     @u = User.find(current_user)
   end
+
 end

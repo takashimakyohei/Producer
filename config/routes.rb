@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'rooms/show'
+
   root to: 'home#index'
   devise_for :producers
   devise_for :users
@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   resources :comments, only: [:destroy]
   resources :producers, only: [:index, :show, :edit, :update]
   resources :users, only: [:show]
-  resources :rooms, only: [:show, :create] do
+  resources :rooms, only: [:index,:show, :create] do
     resources :messages, only: [:create]
   end
+  
+  get '*path', controller: 'application', action: 'render_404'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

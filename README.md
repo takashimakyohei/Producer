@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+農家と消費者を結びつけるアプリ
 
-Things you may want to cover:
+## 環境
+- Docker
+- ruby 2.5
+- rails 5.2.2
+- mysql 5.7
 
-* Ruby version
+## 使い方
+1. リポジトリのクローン
+2. docker-compose upで、webコンテナとrailsコンテナを立ち上げる
+3. docker-compose run web rails db:create
+4. docker-compose run web rails db:migrate でアプリが使えるようになります。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

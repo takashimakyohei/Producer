@@ -1,10 +1,12 @@
 <h1>rooms#index</h1>
   
 <% @users.each do |user| %>
-  <%= user.name %>
-    <% if @user_ids.include?(user.id) %> <%# もし、チャットしたことがあるユーザーなら、「チャットへ」のリンク表示  %>
-      <br>
-      <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) %><br>
-    <% end %>
+  <% if user.rooms.present? %>
+    <%= user.name %>
+      <% if @user_ids.include?(user.id) %> <%# もし、チャットしたことがあるユーザーなら、「チャットへ」のリンク表示  %>
+        <br>
+        <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) %><br>
+      <% end %>
+  <% end %>
 <% end %>
 

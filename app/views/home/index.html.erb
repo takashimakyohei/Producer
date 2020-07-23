@@ -1,29 +1,2 @@
-<!-- 部分テンプレート化予定-->
-<% if user_signed_in? %>
-  ~<%= current_user.name %>がログインしてます~
-  <% if current_user.image.attached? %>
-    <p><%= image_tag current_user.image %></p>
-  <% end %>
-  <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
-
-<% elsif producer_signed_in? %>
-  ~<%= current_producer.name %>がログインしてます~
-<% if current_producer.image.attached? %>
-  <p><%= image_tag current_producer.image %></p>
-<% end %>
-  <%= link_to "ログアウト", destroy_producer_session_path ,:method => :delete %>
-
-<% else %>
-  <h3>ユーザー</h3>
-  <%= link_to "ログイン", new_user_session_path %>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <h3>ショップ</h3>
-  <%= link_to "ログイン", new_producer_session_path %>
-  <%= link_to "新規登録", new_producer_registration_path %>
-<% end %>
-<!--ここまで部分テンプレート化予定-->
-
-
-
 <h1>About</h1>
 コンセプトなどを表示

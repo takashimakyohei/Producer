@@ -1,0 +1,155 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+header {
+  width: 100%;
+  margin: 0 auto;
+  background-image: url("<%= asset_path('background.jpg') %>");
+  background-size: cover;
+  font-family: 'Hannotate TC',sans-serif;
+}
+
+.wrapper {
+  width: 950px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.top-title {
+  font-weight: bold;
+  padding-top:10px;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  left: 369px;
+}
+
+.tomato{
+  position: absolute;
+  left: 310px;
+    top: 15px;
+  width: 50px;
+}
+
+.menu {
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.login-right {
+  padding-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.not-login-right{
+  display: flex;
+  padding-top: 5px;
+  justify-content: flex-end;
+}
+
+.login-button{
+  padding:19px;
+}
+
+.menu-text {
+  padding-top: 8px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color:black;
+}
+
+.icon{
+  width: 70px;
+  height:70px;
+}
+
+.login-icon{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top:8px;
+
+}
+
+.flex{
+  display: flex;
+}
+
+.profile-image{
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+.name {
+  padding: 13px;
+}
+
+.logout{
+  position: relative;
+  top:10px;
+}

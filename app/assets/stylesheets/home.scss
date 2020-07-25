@@ -1,3 +1,27 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-about{
+  font-family: 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+  margin:50px;
+}
+
+.top-background{
+  height: 350px;
+  background-image: image-url("top-back.png");
+  background-size: cover;
+}
+
+
+.top-about-title{
+  font-size: 30px;
+  text-align: center;
+  padding: 60px;
+}
+
+.top-about-description{
+  text-align: center;
+  line-height: 2;
+
+}

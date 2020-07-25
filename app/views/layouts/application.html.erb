@@ -87,6 +87,7 @@
         <% end %>
         </div>
 
+      <% if producer_signed_in? %>                
         <div class="menu-icon">
         <%= link_to new_product_path do %>
           <%= image_tag "box.png", class:"icon" %>
@@ -94,26 +95,22 @@
         <% end %>
         </div>
 
-      <% if producer_signed_in? %>
         <div class="menu-icon">
-        <%= link_to rooms_path do %>
-          <%= image_tag "chat.png", class:"icon" %>
-          <p class="menu-text">DM</p>
-        <% end %>
-        </div>
-
-        <div class="menu-icon">
-        <%= link_to "#" do %>
-          <%= image_tag "contact.png", class:"icon" %>
-          <p class="menu-text">お問い合わせ</p>
-        <% end %>
+          <%= link_to rooms_path do %>
+            <%= image_tag "chat.png", class:"icon" %>
+            <p class="menu-text">DM</p>
+          <% end %>
         </div>
       <% end %>
+
+        <div class="menu-icon">
+          <%= link_to "#" do %>
+            <%= image_tag "contact.png", class:"icon" %>
+            <p class="menu-text">お問い合わせ</p>
+          <% end %>
+        </div>
+
       </div>
-
-
-      
-
     </div>
   </header>
   <%= yield %>

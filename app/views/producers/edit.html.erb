@@ -4,12 +4,12 @@
     <%= form_for @producer do |f| %>
 
     <div class="form-wrapper">
-      <p class="form-text"><%= f.label "名前" %><br />
+      <p class="form-text"><%= f.label "名前" %></p>
       <div class="form-input"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></div>
     </div> 
 
     <div class="form-wrapper">
-      <p class="form-text"><%= f.label "メールアドレス" %><br />
+      <p class="form-text"><%= f.label "メールアドレス" %></p>
       <div class="form-input"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
     </div>
 

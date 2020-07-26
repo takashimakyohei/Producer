@@ -1,3 +1,15 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-actions input{
+  display: block;
+  width: 200px;
+  padding: 13px;
+  color: #fff;
+  background: rgb(26, 106, 255);
+  border-radius: 4px;
+  margin: 0 auto;
+  border:none;
+  cursor: pointer;
+}

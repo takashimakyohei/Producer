@@ -58,3 +58,19 @@
     cursor: pointer;
 }
 
+.actions a{
+  display: block;
+  width: 177px;
+  height: 20px;
+  padding: 13px;
+  color: #fff;
+  background: rgb(226, 53, 0);
+  border-radius: 4px;
+  margin: 0 auto;
+  border:none;
+  cursor: pointer;
+}
+
+.delete-title{
+  margin:30px 0 10px 0;
+}

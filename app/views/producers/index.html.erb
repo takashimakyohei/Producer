@@ -1,9 +1,17 @@
-<% @producers.each do |producer| %>
-  <div class="content">
-    <%= link_to "ユーザー詳細", producer_path(producer) %>
-  <% if producer.image.attached? %>
-    <p>生産者画像：<%= image_tag producer.image %></p>
-  <% end %>
-    <p>生産者：<%= producer.name %></p>
-  </div>
-<% end %>
+<h2 class="producer-title">生産者一覧</h2><hr>
+<div class="producer-wrapper">
+    <% @producers.each do |producer| %>
+
+    <div class="producers-card">
+    <%= link_to producer_path(producer) do  %>
+      <% if producer.image.attached? %>
+        <p class="producer-image"><%= image_tag producer.image %></p>
+      <% else %>
+        <p class="producer-image"><%= image_tag "default-user.png" %></p>
+      <% end %>
+        <p class="producer-name"><%= producer.name %></p>
+     <% end %>  
+    </div>
+
+    <% end %>
+</div>

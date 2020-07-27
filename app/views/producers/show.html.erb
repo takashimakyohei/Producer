@@ -1,12 +1,24 @@
-<h2>出品者</h2>
-<hr>
-<p><%= @producer.prefecture.name%></p>
-<p>出品者：<%=@producer.name  %></p>
-<p>プロフィール:<%= @producer.profile %></p>
-<% if @producer.image.attached? %>
-  <p>出品者画像：<%= image_tag @producer.image %></p>
-<% end %>
+<h2 class="producer-title">生産者</h2><hr>
 
-<% if current_producer == @producer %>
-  <%= link_to "編集", edit_producer_path  %>
-<% end %>
+<div class="producer-wrapper">
+
+  <div class="producer-image-container">
+    <% if @producer.image.attached? %>
+      <p><%= image_tag @producer.image %></p>
+    <% else %>
+      <p class="producer-image"><%= image_tag "default-user.png" %></p>
+    <% end %>
+  </div>
+
+  <div class="producer-about-container">
+    <p class="producer-about">【名前】<%=@producer.name  %></p>
+    <p class="producer-about">【生産県】<%= @producer.prefecture.name%></p>
+    <div class="producer-about">【自己紹介】<%= simple_format(@producer.profile) %></div>
+    <p class="producer-about">
+    <% if current_producer == @producer %>
+      <%= link_to "編集", edit_producer_path  %>
+    <% end %>
+    </p>
+  </div>
+
+</div>

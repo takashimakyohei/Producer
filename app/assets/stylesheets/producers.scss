@@ -1,3 +1,64 @@
 // Place all the styles related to the producers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.producer-title{
+  font-size: 23px;
+    padding: 25px;
+  text-align: center;
+}
+
+.producers-wrapper{
+  display: flex;
+  width: 950px;
+  margin: 0 auto;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.producers-card{
+  width: 200px;
+  height: 200px;
+  margin:17px;
+  border: 1px solid #dddddd;
+}
+
+.producers-card img{
+  width:140px;
+  height: 140px;
+  margin-top: 5px;
+}
+
+.producer-image{
+  text-align: center;
+}
+
+.producer-name{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.producer-wrapper{ //生産者詳細画面
+  display: flex;
+  width: 950px;
+  margin: 30px auto 0px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #dddddd;
+}
+
+.producer-image-container img{
+  margin:15px;
+  width: 200px;
+  height:200px;
+}
+
+.producer-about-container{
+  width: 400px;
+}
+
+.producer-about {
+  border: 1px solid #dddddd;
+  padding: 15px 20px;
+}

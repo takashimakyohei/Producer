@@ -14,3 +14,62 @@
   cursor: pointer;
 }
 
+.products-wrapper{ //商品一覧
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 950px;
+  margin: 30px auto 0px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #dddddd;
+}
+
+.product-container {
+  margin: 21px;
+  border: 1px solid #dddddd;
+  width:270px;
+}
+
+.product-index-image{
+  text-align: center;
+  margin-top: 10px
+}
+
+.product-index-image img{
+  border: 1px solid #dddddd;
+  width: 150px;
+  height: 150px;
+}
+.product-image-container{
+  display: flex;
+}
+.producer-image img{
+  margin: 15px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.product-content{
+  width:100px;
+
+}
+
+.producer-index-about{
+  width: 115px;
+  padding: 10px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+
+.product-title{
+  margin: 10px 0;
+  text-align: center;
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 5px;
+}

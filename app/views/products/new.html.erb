@@ -4,12 +4,12 @@
 
     <div class="form-wrapper">
       <p class="form-text"><%= f.label "品名" %></p>
-      <div class="form-input"><%= f.text_field :name %></div>
+      <div class="form-input"><%= f.text_field :name, maxlength:9 %></div>
     </div> 
 
     <div class="form-wrapper">
       <p class="form-text"><%= f.label "出品時のタイトル" %></p>
-      <div class="form-input"><%= f.text_field :content %></div>
+      <div class="form-input"><%= f.text_field :content, maxlength:10 %></div>
     </div> 
 
     <div class="form-wrapper">

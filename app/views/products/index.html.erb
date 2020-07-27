@@ -1,31 +1,39 @@
-<% @products.each do |product| %>
-<div class="content">
-<%= link_to "詳細", product_path(product) %>
-
-<% if product.image.attached? %>
-  <p><%= image_tag product.image %></p>
-<% end %>
-<p>生産者：<%= product.producer.name %></p>
-
-<% if product.producer.image.attached? %>
-  <p><%= image_tag product.producer.image %></p>
-<% end %>
-
-<p>内容：<%= product.content %></p>
-<p>値段：<%= product.price %></p>
-<p>内容：<%= product.description %></p>
-<p><%= product.producer.prefecture.name %></p>
-<p>出品者のプロフィール表示(30文字程度まで表示予定)</p>
-<p>コメント：<%= product.comments.count %></p>
-
-<% if user_signed_in? %>
-  <% if Favorite.find_by(user_id: current_user.id, product_id: product.id) %>
-    <%= link_to "いいねを外す", product_favorites_path(product), method: :delete %>
-  <% else %>
-    <%= link_to "いいね", product_favorites_path(product), method: :post %>
+<div class="products-wrapper">
+  <% @products.each do |product| %>
+  <%= link_to product_path(product) do %>
+    <div class="product-container">
+      <% if product.image.attached? %>
+        <div class="product-index-image"><%= image_tag product.image %></div>
+      <% end %>
   <% end %>
-<% end %>
-  いいね数：<%= product.favorites.count %>
+    <p class="product-title">【<%= product.producer.name %>】<%= product.content %></p>
 
+    <div class="product-image-container">
+
+      <div class="producer-image">
+        <% if product.producer.image.attached? %>
+          <p><%= image_tag product.producer.image %></p>
+        <% end %>
+      </div>
+
+      <div class="product-content">
+        <p class="producer-index-about">¥<%= product.price %></p>
+        <p class="producer-index-about"><%= product.description %></p>
+        <p class="producer-index-about"><%= product.producer.prefecture.name %></p>
+        <p class="producer-index-about">コメント：<%= product.comments.count %></p>
+
+        <% if user_signed_in? %>
+          <% if Favorite.find_by(user_id: current_user.id, product_id: product.id) %>
+            <%= link_to "いいねを外す", product_favorites_path(product), method: :delete %>
+          <% else %>
+            <%= link_to "いいね", product_favorites_path(product), method: :post %>
+          <% end %>
+        <% end %>
+          <p class="producer-index-about">いいね数：<%= product.favorites.count %></p>
+      </div>
+
+    </div>
+  </div>
+
+  <% end %>
 </div>
-<% end %>

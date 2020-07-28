@@ -3,13 +3,13 @@
   <%= form_for @product do |f| %>
 
     <div class="form-wrapper">
-      <p class="form-text"><%= f.label "品名" %></p>
+      <p class="form-text"><%= f.label "品名(9文字まで)" %></p>
       <div class="form-input"><%= f.text_field :name, maxlength:9 %></div>
     </div> 
 
     <div class="form-wrapper">
-      <p class="form-text"><%= f.label "出品時のタイトル" %></p>
-      <div class="form-input"><%= f.text_field :content, maxlength:10 %></div>
+      <p class="form-text"><%= f.label "出品時のタイトル(15文字まで)" %></p>
+      <div class="form-input"><%= f.text_field :content, maxlength:15 %></div>
     </div> 
 
     <div class="form-wrapper">

@@ -1,53 +1,74 @@
+<h2 class="producer-title">詳細</h2><hr>
+<div class="show-product-wrapper">
 
-<h2>商品詳細</h2>
-<% if producer_signed_in? && @product.producer == current_producer %>
-  <%= link_to "編集", edit_product_path(@product) %>
-<% end %>
-<p>商品名：<%= @product.name %></p>
-<p>内容：<%= @product.content %></p>
-<p>値段：<%= @product.price %></p>
-<p>内容：<%= @product.description %></p>
+  <div class="show-product-image">
+    <% if @product.image.attached? %>
+      <p><%= image_tag @product.image %></p>
+    <% end %>
+  </div>
 
-<% if @product.image.attached? %>
-  <p><%= image_tag @product.image %></p>
-<% end %>
-
-<p><%= @product.producer.prefecture.name %></p>
-<p><%= @product.producer.name %></p>
-
-<% if @product.producer.image.attached? %>
-  <p><%= image_tag @product.producer.image %></p>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= form_for [@product, @comment] do |f| %>
-    <%= f.text_field :content %>
-    <%= f.hidden_field :product_id, value: @product.id %>
-    <br>
-    <%= f.submit "コメントする" %>
-  <% end %>
-<% end %>
-
-  <% @comments.each do |comment| %>
-    <p><%= comment.user.name %>:<%= comment.content %></p>
+  <div class="show-product-content">
+    <% if producer_signed_in? && @product.producer == current_producer %>
+      <%= link_to "編集", edit_product_path(@product) %>
+    <% end %>
+    <p class="show-product-about">【品名】<%= @product.name %></p>
+    <p class="show-product-about">【内容】<%= @product.content %></p>
+    <p class="show-product-about"><%= @product.price %>円</p>
     <% if user_signed_in? %>
-      <% if comment.user_id == current_user.id %>
-        <%= link_to "削除", comment_path(comment.id), method: :delete %>
+        <% if @producer_ids.include?(@producer.id)  %> <%#ユーザーとしてログインした時に、相手のidが存在するかどうかをチェックしている  %>
+          <br>
+          <div class="dm-field dm-button"><%= link_to "DMへ", room_path(current_user.rooms.find_by(producer_id: @producer.id)) %></div>
+        <% else %>
+        <%= form_for Room.new do |f| %>
+        <div class="dm-field">
+          <%= f.hidden_field :producer_id, :value => @producer.id %>
+          <%= f.submit  "生産者にDMする" %>
+        </div>
+        <% end %>
       <% end %>
     <% end %>
+    <div class="show-product-about"><%= simple_format(@product.description) %></div>
+  </div>
+</div>
+
+<div class="show-producer">
+  <% if @product.producer.image.attached? %>
+    <div class="show-producer-image"><%= image_tag @product.producer.image %></div>
   <% end %>
-コメント：<%= @comments.count %>件
+  <div class="show-producer-name"><%= @product.producer.name %></div>
+</div>
 
-<% if user_signed_in? %>
+<div class="show-producer-description">
+<hr>
+  <%= simple_format(@product.producer.profile) %>
+</div>
 
-  <% if @producer_ids.include?(@producer.id)  %> <%#ユーザーとしてログインした時に、相手のidが存在するかどうかをチェックしている  %>
-    <br>
-    <%= link_to "チャットへ", room_path(current_user.rooms.find_by(producer_id: @producer.id)) %>
-  <% else %>
-    <%= form_for Room.new do |f| %>
-      <%= f.hidden_field :producer_id, :value => @producer.id %>
-      <%= f.submit %>
+<h2 class="show-comment-title">コメント(<%= @comments.count %>)件</h2>
+<hr>
+<div class="show-comment">
+  <% if user_signed_in? %>
+    <%= form_for [@product, @comment] do |f| %>
+        <%= f.text_field :content %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.submit "コメントする" %>
     <% end %>
   <% end %>
-<% end %>
+</div>
+
+  <% @comments.each do |comment| %>
+    <div class="comment-container">
+        <div class="comment-user-image"><%= image_tag comment.user.image %></div>
+          <div class="comment-content"><%= comment.user.name %>:<%= comment.content %></div>
+          <% if user_signed_in? %>
+            <% if comment.user_id == current_user.id %>
+              <div class="remove-comment"><%= link_to "×", comment_path(comment.id), method: :delete %></div>
+            <% end %>
+          <% end %>
+    </div>
+  <% end %>
+
+
+
+
+
 

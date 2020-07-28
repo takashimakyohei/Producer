@@ -4,7 +4,7 @@
 
 .producer-title{
   font-size: 23px;
-    padding: 25px;
+  padding: 25px;
   text-align: center;
 }
 
@@ -62,3 +62,14 @@
   border: 1px solid #dddddd;
   padding: 15px 20px;
 }
+
+.producer-about p{
+  line-height: 30px;
+}
+
+.show-producer{
+  display: flex;
+  width: 950px;
+  margin: 30px auto 0px auto;
+}
+

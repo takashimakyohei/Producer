@@ -1,12 +1,24 @@
 <h1>rooms#index</h1>
-  
-<% @users.each do |user| %>
-  <% if user.rooms.present? %>
-    <%= user.name %>
-      <% if @user_ids.include?(user.id) %> <%# もし、チャットしたことがあるユーザーなら、「チャットへ」のリンク表示  %>
-        <br>
-        <%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) %><br>
-      <% end %>
+
+  <% @users.each do |user| %>
+  <div class="rooms-wrapper">
+
+  <div class="rooms-user-image">
+    <% if user.image.attached? %>
+    <p><%= image_tag user.image %></p>
+    <% else %>
+    <%= image_tag "default-user.png" %>
+    <% end %>
+  </div>
+
+    <% if user.rooms.present? %>
+      <div class="rooms-user-name"><%= user.name %></div>
+        <% if @user_ids.include?(user.id) %> <%# もし、チャットしたことがあるユーザーなら、「チャットへ」のリンク表示  %>
+      <div class="rooms-user-chat"><%= link_to "チャットへ", room_path(current_producer.rooms.find_by(user_id: user.id)) %></div>
+        <% end %>
+    <% end %>
+    </div>
   <% end %>
-<% end %>
+
+
 

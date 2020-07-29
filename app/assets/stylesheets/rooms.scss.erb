@@ -1,0 +1,90 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rooms-wrapper {
+  display: flex;
+  width: 950px;
+  margin: 30px auto 0px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #dddddd;
+}
+
+.rooms-user-image {
+  margin-top: 7px;
+}
+
+.rooms-user-image img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+
+.rooms-user-name {
+  font-size: 20px;
+  padding: 23px;
+}
+
+.rooms-user-chat {
+  margin-left: auto;
+}
+
+.rooms-user-chat a {
+  display: block;
+  padding: 32px;
+  color: #fff;
+  background-color: #4fd6ff;
+}
+
+.chat-field {
+  width: 950px;
+  margin: 30px auto 0px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #dddddd;
+  background-image: url("<%= asset_path('sky.jpg') %>");
+  background-size: cover;
+}
+
+.right-message {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 17px;
+  position: relative;
+  background-color: #8fff8f;
+  padding: 10px;
+  color: #333;
+  width: 300px;
+}
+
+.right-message:before {
+  content: "";
+  position: absolute;
+  border: 12px solid transparent;
+  border-left: 12px solid #8fff8f;
+  top: 20%;
+  left: 100%;
+}
+
+.left-message {
+  position: relative;
+  background-color: #fff;
+  padding: 10px;
+  color: #333;
+  margin: 15px;
+  width: 300px;
+}
+
+.left-message:before {
+  content: "";
+  position: absolute;
+  border: 12px solid transparent;
+  border-right: 12px solid #fff;
+  top: 20%;
+  left: -24px;
+}
+
+.text-box {
+  margin: 20px 0px;
+  text-align: center;
+}

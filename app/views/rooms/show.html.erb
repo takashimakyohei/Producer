@@ -1,8 +1,7 @@
-<h2>チャットルーム</h2>
 
 <% if user_signed_in? %>
-  <h3><%= @producer.name %>とのチャットルーム</h3>
-  <div class="chat-field">
+<h2 class="chat-title"><%= @producer.name %>とのチャットルーム</h2>
+<div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->
       <% if m.is_user %>
@@ -18,11 +17,17 @@
         </div>
       <% end %>
     <% end %>
+  <div class="text-box">
+    <%= form_for [@room, @message] do |f| %>
+      <%= f.text_field :content %>
+      <%= f.submit "メッセージを送る"%>
+    <% end %>
   </div>
+</div>
 
 <% elsif producer_signed_in?%>
   <h3><%= @user.name %>とのチャットルーム</h3>
-  <div class="chat-field">
+<div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->
       <% if m.is_user %>
@@ -38,10 +43,13 @@
         </div>
       <% end %>
     <% end %>
+  <div class="text-box">
+    <%= form_for [@room, @message] do |f| %>
+      <%= f.text_field :content %>
+      <%= f.submit "メッセージを送る"%>
+    <% end %>
+  </div>
+
   </div>
 <% end %>
 
-<%= form_for [@room, @message] do |f| %>
-  <%= f.text_field :content %>
-  <%= f.submit "メッセージを送る"%>
-<% end %>

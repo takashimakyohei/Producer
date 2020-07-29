@@ -1,13 +1,26 @@
-<h2>ユーザー</h2>
-<hr>
-  <p><%= @user.prefecture.name %></p>
-<p>ユーザー：<%=@user.name  %></p>
-<p>メールアドレス： <%= @user.email %></p>
+<h2 class="producer-title">生産者</h2><hr>
 
-<% if @user.image.attached? %>
-<p>ユーザー画像：<%= image_tag @user.image %></p>
-<% end %>
+<div class="producer-wrapper">
 
-<% if current_user == @user %>
-  <%= link_to "編集", edit_user_registration_path  %>
-<% end %>
+  <div class="producer-image-container">
+    <% if @user.image.attached? %>
+      <p><%= image_tag @user.image %></p>
+    <% else %>
+      <p class="producer-image"><%= image_tag "default-user.png" %></p>
+    <% end %>
+  </div>
+
+  <div class="producer-about-container">
+    <p class="producer-about">【名前】<%=@user.name  %></p>
+    <p class="producer-about">【生産県】<%= @user.prefecture.name%></p>
+    <p class="producer-about">【生産県】<%= @user.email%></p>
+    <p class="producer-about">
+      <% if current_user == @user %>
+        <%= link_to "編集", edit_user_registration_path  %>
+      <% end %>
+    </p>
+  </div>
+
+</div>
+
+

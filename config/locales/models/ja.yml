@@ -3,17 +3,23 @@ ja:
     models:
       user: ユーザー
       producer: 生産者
+      product: 商品
     attributes:
       user:
-        name: ※名前
-        prefecture_id: ※都道府県
-        email: ※メールアドレス
-        password: ※パスワード
+        name: 名前
+        prefecture_id: 都道府県
+        email: メールアドレス
+        password: パスワード
       producer:
-        name: ※名前
-        prefecture_id: ※都道府県
-        email: ※メールアドレス
-        password: ※パスワード
+        name: 名前
+        prefecture_id: 都道府県
+        email: メールアドレス
+        password: パスワード
+      product:
+        name: 商品名
+        content: 内容
+        description: 説明
+        price: 値段
 
   errors:
     messages:

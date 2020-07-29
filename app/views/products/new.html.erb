@@ -1,7 +1,9 @@
 <div class="form">
   <h2 class="form-title">商品の出品</h2>
   <%= form_for @product do |f| %>
-
+  <% if @product.errors.any? %>
+   <p class="error">フォームの値を正しく入力してください</p>
+  <% end %>
     <div class="form-wrapper">
       <p class="form-text"><%= f.label "品名(9文字まで)" %></p>
       <div class="form-input"><%= f.text_field :name, maxlength:9 %></div>

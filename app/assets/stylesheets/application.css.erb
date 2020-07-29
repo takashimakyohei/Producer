@@ -14,48 +14,135 @@
  *= require_self
  */
 
- html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
+
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 
@@ -64,7 +151,7 @@ header {
   margin: 0 auto;
   background-image: url("<%= asset_path('background.jpg') %>");
   background-size: cover;
-  font-family: 'Hannotate TC',sans-serif;
+  font-family: 'Hannotate TC', sans-serif;
 }
 
 .wrapper {
@@ -75,17 +162,17 @@ header {
 
 .top-title {
   font-weight: bold;
-  padding-top:10px;
+  padding-top: 10px;
   font-size: 30px;
   position: absolute;
   top: 15px;
   left: 369px;
 }
 
-.tomato{
+.tomato {
   position: absolute;
   left: 310px;
-    top: 15px;
+  top: 15px;
   width: 50px;
 }
 
@@ -101,14 +188,14 @@ header {
   justify-content: flex-end;
 }
 
-.not-login-right{
+.not-login-right {
   display: flex;
   padding-top: 5px;
   justify-content: flex-end;
 }
 
-.login-button{
-  padding:19px;
+.login-button {
+  padding: 19px;
 }
 
 .menu-text {
@@ -117,29 +204,29 @@ header {
   text-align: center;
 }
 
-a{
+a {
   text-decoration: none;
-  color:black;
+  color: black;
 }
 
-.icon{
+.icon {
   width: 70px;
-  height:70px;
+  height: 70px;
 }
 
-.login-icon{
+.login-icon {
   width: 30px;
   height: 30px;
   position: relative;
-  top:8px;
+  top: 8px;
 
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.profile-image{
+.profile-image {
   border-radius: 50%;
   width: 45px;
   height: 45px;
@@ -149,7 +236,11 @@ a{
   padding: 13px;
 }
 
-.logout{
+.logout {
   position: relative;
-  top:10px;
+  top: 10px;
+}
+
+.error {
+  color: red;
 }

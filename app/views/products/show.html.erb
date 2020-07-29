@@ -57,7 +57,9 @@
 
   <% @comments.each do |comment| %>
     <div class="comment-container">
+      <% if comment.user.image.attached? %>
         <div class="comment-user-image"><%= image_tag comment.user.image %></div>
+      <% end %>
           <div class="comment-content"><%= comment.user.name %>:<%= comment.content %></div>
           <% if user_signed_in? %>
             <% if comment.user_id == current_user.id %>

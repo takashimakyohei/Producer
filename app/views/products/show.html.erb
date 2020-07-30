@@ -34,6 +34,8 @@
 <div class="show-producer">
   <% if @product.producer.image.attached? %>
     <div class="show-producer-image"><%= image_tag @product.producer.image %></div>
+  <% else %>
+    <div class="show-producer-image"><%= image_tag "default-user.png" %></div>
   <% end %>
   <div class="show-producer-name"><%= @product.producer.name %></div>
 </div>
@@ -59,6 +61,8 @@
     <div class="comment-container">
       <% if comment.user.image.attached? %>
         <div class="comment-user-image"><%= image_tag comment.user.image %></div>
+      <% else %>
+        <div class="comment-user-image"><%= image_tag "default-user.png" %></div>
       <% end %>
           <div class="comment-content"><%= comment.user.name %>:<%= comment.content %></div>
           <% if user_signed_in? %>

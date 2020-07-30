@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  # CSRF対策
+  protect_from_forgery with: :exception
+  # 例外処理記述
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue404 #レコードが存在しない場合のエラー画面
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -15,8 +19,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def user_signed?
-    @u = User.find(current_user)
+  def rescue404(e)
+    @exception = e
+    render template: 'error/404_not_found', status: 404
   end
 
 end

@@ -15,8 +15,10 @@
 
 
     <div class="wrapper">
+    <%= link_to root_path do %>
       <%= image_tag "tomato.png", class:"tomato" %>
       <h1 class="top-title">農園直売所</h1>
+    <% end %>
       <div class="not-login-right">
         <% if !user_signed_in? && !producer_signed_in? %>
           <div class="login-button">

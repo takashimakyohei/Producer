@@ -73,4 +73,6 @@ gem 'devise'
 gem "aws-sdk-s3", require: false
 gem 'seed-fu'
 gem 'rails-i18n'
+gem 'font-awesome-sass', '~> 5.4.1'
+
 

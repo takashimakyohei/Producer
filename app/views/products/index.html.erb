@@ -23,14 +23,20 @@
         <p class="producer-index-about"><%= product.producer.prefecture.name %></p>
         <p class="producer-index-about">コメント：<%= product.comments.count %></p>
 
+
+
         <% if user_signed_in? %>
           <% if Favorite.find_by(user_id: current_user.id, product_id: product.id) %>
-            <%= link_to "いいねを外す", product_favorites_path(product), method: :delete %>
+            <%= link_to product_favorites_path(product), method: :delete do %>
+              <p class="producer-index-about">いいねを外す<i class="fas fa-heart"></i></p>
+            <% end %>
           <% else %>
-            <%= link_to "いいね", product_favorites_path(product), method: :post %>
+            <%= link_to product_favorites_path(product), method: :post do %>
+              <p class="producer-index-about">いいね！<i class="far fa-heart"></i></p>
+            <% end %>
           <% end %>
         <% end %>
-          <p class="producer-index-about">いいね数：<%= product.favorites.count %></p>
+          <p class="producer-index-about"><i class="fas fa-heart"></i><%= product.favorites.count %></p>
       </div>
 
     </div>

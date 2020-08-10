@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 html,
 body,
@@ -149,7 +151,7 @@ table {
 header {
   width: 100%;
   margin: 0 auto;
-  background-image: url("<%= asset_path('background.jpg') %>");
+  background-image: image-url('background.jpg');
   background-size: cover;
   font-family: 'Hannotate TC', sans-serif;
 }

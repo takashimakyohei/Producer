@@ -41,9 +41,8 @@ server "54.248.73.171", user: "ec2-user", roles: %w{app db web}
 #
 # Global options
 # --------------
- set :ssh_options, {
-   keys: "~/.ssh/takashima_key.pem",
- }
+ set :ssh_options, keys: "~/.ssh/id_rsa"
+ 
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------

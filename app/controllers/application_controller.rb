@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
   # CSRF対策
   protect_from_forgery with: :exception
-  # 例外処理記述
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue404 #レコードが存在しない場合のエラー画面
+
+  #Routing Error捕捉
+  rescue_from ActionController::RoutingError, with: :rescue404_route
+
+  def routing_error
+    raise ActionController::RoutingError, params[:path]
+  end
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -19,9 +24,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def rescue404(e)
+  def rescue404_route(e)
     @exception = e
-    render template: 'error/404_not_found', status: 404
+    render template: 'error/404_route_not_found', status: 404
   end
 
 end

@@ -1,4 +1,8 @@
 class ProductsController < ApplicationController
+
+  # 例外処理記述
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue404_product #レコードが存在しない場合のエラー画面
+
   def index
     @products = Product.all
   end
@@ -62,4 +66,10 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :price, :content, :image)
   end
+
+  def rescue404_product(e)
+    @exception = e
+    render template: 'error/404_product_not_found', status: 404
+  end
+
 end

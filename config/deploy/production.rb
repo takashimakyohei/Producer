@@ -43,7 +43,7 @@ server "54.248.73.171", user: "ec2-user", roles: %w{app db web}, port: 22
 # --------------
  set :ssh_options,{
   forward_agent: true,
-  keys: "~/.ssh/takashima_key.pem"
+  keys: "~/.ssh/id_rsa"
  }
  
 #

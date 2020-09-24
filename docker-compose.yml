@@ -6,7 +6,7 @@ services: #アプリケーションを動かすための各要素。今回は、
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: password
     ports: # ホスト側：コンテナ側。　コンテナ側の3306ポートを、ホスト側の3306ポートに同期させる。これにより、コンテナの中からホストの3306ポートにアクセスできる。
-      - "3306:3306"
+      - "3307:3306"
     volumes: #データを永続化するための仕組み。 ホスト側の./db/mysql/volumes を コンテナ内の/var/lib/mysqlと同期させる
       - ./db/mysql/volumes:/var/lib/mysql
 

@@ -42,7 +42,6 @@ server "54.248.73.171", user: "ec2-user", roles: %w{app db web}, port: 22
 # Global options
 # --------------
  set :ssh_options,{
-  forward_agent: true,
   keys: "~/.ssh/id_rsa"
  }
  
